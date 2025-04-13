@@ -13,7 +13,10 @@ Claude AIインターフェイス内での操作を自動化するための軽�
 ## インストール方法
 1. Claude Desktopを開く
 2. ヘルプ -> 開発者モードを有効にする
-3. 「Developer Tools - https://claude.ai」という名前の開発者ツールウィンドウに移動
+3. 開発者ツールを開く：
+   - Windows: Ctrl + Shift + Alt + I
+   - Mac: Cmd + Shift + Option + I
+   - または「Developer Tools - https://claude.ai」という名前の開発者ツールウィンドウを手動で開く
 4. 「Console」タブに移動
 5. 「allow pasting」と入力してEnterキーを押す
 6. セットアップスクリプト（1-setup.js）を貼り付ける
