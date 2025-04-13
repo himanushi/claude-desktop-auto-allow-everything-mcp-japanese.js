@@ -42,7 +42,3 @@ Claude がツールを実行するための許可を求めるときに「この�
 window.autoActionsRegistry.push(new YourCustomAction());
 ```
 
-## クレジット
-作成者: @rvanbaalen
-
-@RafalWilinskiのオリジナルの自動承認スクリプトにインスパイアされました
