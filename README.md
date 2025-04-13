@@ -1,5 +1,5 @@
-# Claude自動アクション・フレームワーク
-Claude AIインターフェイス内での操作を自動化するための軽量で拡張可能なフレームワークです。
+# Claude Desktop MCP 自動許可スクリプト
+Claude Desktop で MCP（ツール）を使用する際の許可ダイアログを自動的に承認するための軽量で拡張可能なスクリプトです。
 
 > **参考**: このプロジェクトは[Rafal Wilinskiのオリジナルスクリプト](https://gist.github.com/RafalWilinski/3416a497f94ee2a0c589a8d930304950)にインスパイアされています。
 
