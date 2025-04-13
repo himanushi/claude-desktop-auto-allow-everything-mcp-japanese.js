@@ -40,7 +40,7 @@ class AutoConfirmToolAction extends BaseAction {
 
       // 確認ボタンを探す（日本語版）
       const allowButton = Array.from(dialog.querySelectorAll("button")).find(
-        (button) => button.textContent.includes("このチャットに許可")
+        (button) => button.textContent.includes("このチャットで許可する")
       );
 
       if (allowButton) {
