@@ -1,8 +1,8 @@
 // ⚠️ このスクリプトを貼り付ける前に、必ずセットアップスクリプトを貼り付けてください！
 
-class AutoConfirmToolAction extends BaseAction {
+class AutoContinueToolAction extends BaseAction {
   constructor() {
-    super("自動ツール許可");
+    super("自動続行");
   }
 
   check() {
@@ -32,7 +32,7 @@ class AutoConfirmToolAction extends BaseAction {
 
 // レジストリにアクションインスタンスを追加
 // 一度だけ追加されることを確認するか、追加を慎重に管理する
-if (!window.autoActionsRegistry.some(action => action.name === "自動ツール許可")) {
-    window.autoActionsRegistry.push(new AutoConfirmToolAction());
-    console.log("🤖 自動ツール許可アクションをレジストリに追加しました。");
+if (!window.autoActionsRegistry.some(action => action.name === "自動続行")) {
+    window.autoActionsRegistry.push(new AutoContinueToolAction());
+    console.log("🤖 自動続行アクションをレジストリに追加しました。");
 }
