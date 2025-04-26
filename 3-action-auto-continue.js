@@ -7,17 +7,17 @@ class AutoContinueToolAction extends BaseAction {
 
   check() {
     console.log(`[${this.name}] 条件をチェック中...`);
-    const dialog = document.querySelector('[role="dialog"]');
-    if (!dialog) return null; // 条件不一致
+    const buttons = document.querySelectorAll('[data-testid="message-warning"] button');
+    if (!buttons.length) return null; // 条件不一致
 
     // ツールリクエストテキストを探してダイアログを特定
-    const allowButton = [...dialog.querySelectorAll("button")].find(
-      button => button.innerText === "このチャットで許可する"
+    const continueButton = [...buttons].find(
+      button => button.innerText === "続ける"
     );
-    if (!allowButton) return null; // 正しいダイアログ構造ではない
+    if (!continueButton) return null; // 正しいダイアログ構造ではない
 
     console.log(`[${this.name}] '許可'ボタンを発見しました。`);
-    return { button: allowButton, toolName: "自動ツール許可" };
+    return { button: continueButton, toolName: "自動続行" };
   }
 
   execute(data) {
