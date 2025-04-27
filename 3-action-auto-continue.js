@@ -6,7 +6,7 @@ class AutoContinueToolAction extends BaseAction {
   }
 
   check() {
-    console.log(`[${this.name}] 条件をチェック中...`);
+    console.log(`条件をチェック中...`);
     const buttons = document.querySelectorAll('[data-testid="message-warning"] button');
     if (!buttons.length) return null; // 条件不一致
 
@@ -16,7 +16,7 @@ class AutoContinueToolAction extends BaseAction {
     );
     if (!continueButton) return null; // 正しいダイアログ構造ではない
 
-    console.log(`[${this.name}] '許可'ボタンを発見しました。`);
+    console.log(`[${this.name}] '続ける'ボタンを発見しました。`);
     return { button: continueButton, toolName: "自動続行" };
   }
 

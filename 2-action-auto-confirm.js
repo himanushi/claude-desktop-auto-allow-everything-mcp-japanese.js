@@ -6,7 +6,7 @@ class AutoConfirmToolAction extends BaseAction {
   }
 
   check() {
-    console.log(`[${this.name}] 条件をチェック中...`);
+    console.log(`条件をチェック中...`);
     const dialog = document.querySelector('[role="dialog"]');
     if (!dialog) return null; // 条件不一致
 
@@ -16,7 +16,7 @@ class AutoConfirmToolAction extends BaseAction {
     );
     if (!allowButton) return null; // 正しいダイアログ構造ではない
 
-    console.log(`[${this.name}] '許可'ボタンを発見しました。`);
+    console.log(`[${this.name}] 'このチャットで許可する'ボタンを発見しました。`);
     return { button: allowButton, toolName: "自動ツール許可" };
   }
 
