@@ -6,7 +6,6 @@ class AutoContinueToolAction extends BaseAction {
   }
 
   check() {
-    console.log(`条件をチェック中...`);
     const buttons = document.querySelectorAll('[data-testid="message-warning"] button');
     if (!buttons.length) return null; // 条件不一致
 

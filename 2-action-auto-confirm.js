@@ -6,7 +6,6 @@ class AutoConfirmToolAction extends BaseAction {
   }
 
   check() {
-    console.log(`条件をチェック中...`);
     const dialog = document.querySelector('[role="dialog"]');
     if (!dialog) return null; // 条件不一致
 
