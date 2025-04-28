@@ -1,0 +1,22 @@
+{
+  "folders": [
+    {
+      "path": "./"
+    }
+  ],
+  "settings": {
+    "emeraldwalk.runonsave": {
+      "commands": [
+        {
+          "match": "\\.js$|\\.mjs$|\\.cjs$|\\.jsx$|\\.tsx$|\\.ts$|\\.json$|\\.css$|\\.scss$|\\.code-workspace$",
+          "cmd": "npx @biomejs/biome check --write --unsafe ${file}"
+        }
+      ]
+    },
+    "editor.renderWhitespace": "all",
+    "typescript.preferences.importModuleSpecifier": "non-relative"
+  },
+  "extensions": {
+    "recommendations": ["emeraldwalk.runonsave", "biome.biome-vscode"]
+  }
+}

@@ -6,9 +6,9 @@
  * 4. 「Console」タブに移動
  * 5. 「allow pasting」と入力してEnterキーを押す
  * 6. このスニペットを貼り付けてEnterキーを押す
- * 
+ *
  * 作成者: @rvanbaalen
- * @RafalWilinskiのオリジナルの自動承認スクリプトにインスパイア: 
+ * @RafalWilinskiのオリジナルの自動承認スクリプトにインスパイア:
  * https://gist.github.com/RafalWilinski/3416a497f94ee2a0c589a8d930304950
  */
 
@@ -49,11 +49,18 @@ if (window.myMutationObserver) {
 
 console.log("新しいMutation Observerをセットアップ中...");
 
+function recordActivity() {}
+
 const observer = new MutationObserver((mutations) => {
+  // アクティビティを記録 (アイドル検出のため)
+  recordActivity();
+
   const now = Date.now();
   // グローバルクールダウンをチェック
   if (now - lastActionTime < GLOBAL_COOLDOWN_MS) {
-    console.log("🕒 グローバルクールダウンが有効です。変更チェックをスキップします。");
+    console.log(
+      "🕒 グローバルクールダウンが有効です。変更チェックをスキップします。",
+    );
     return;
   }
 
@@ -64,22 +71,27 @@ const observer = new MutationObserver((mutations) => {
       const actionData = actionInstance.check();
 
       if (actionData) {
-        console.log(`✅ [${actionInstance.name}] 条件が満たされました。実行準備中。`);
+        console.log(
+          `✅ [${actionInstance.name}] 条件が満たされました。実行準備中。`,
+        );
         // 条件が満たされた場合、アクションを実行
         actionInstance.execute(actionData);
 
         // グローバルクールダウンを設定
         lastActionTime = now;
-        console.log(`⏱️ [${actionInstance.name}] アクション実行完了。クールダウン開始。`);
+        console.log(
+          `⏱️ [${actionInstance.name}] アクション実行完了。クールダウン開始。`,
+        );
 
         // 重要: この変更バッチに対する他のアクションのチェックを停止
         // 同じ変更に対して複数のアクションが発火するのを防ぎ、クールダウンを尊重
         break;
-      } else {
-         // console.log(`- [${actionInstance.name}] 条件が満たされていません。`); // ノイズになる可能性
       }
     } catch (error) {
-      console.error(`"${actionInstance.name}" のアクションcheck/executeでエラーが発生:`, error);
+      console.error(
+        `"${actionInstance.name}" のアクションcheck/executeでエラーが発生:`,
+        error,
+      );
       // オプションで次のアクションに続行するか、望ましい堅牢性に応じて中断
       // continue;
     }
@@ -96,4 +108,7 @@ observer.observe(document.body, {
 window.myMutationObserver = observer;
 
 console.log("✅ オブザーバーが開始されました。変更を監視中...");
-console.log("登録されたアクション:", window.autoActionsRegistry.map(a => a.name));
+console.log(
+  "登録されたアクション:",
+  window.autoActionsRegistry.map((a) => a.name),
+);
